@@ -23,6 +23,8 @@ Route::get('/student', [StudentController::class, 'index']);
 Route::post('/student', [StudentController::class, 'store']);
 Route::get('/student/{id}', [StudentController::class, 'edit']);
 Route::patch('/student/{student}', [StudentController::class, 'modify']);
+Route::get('/student/{id}', [StudentController::class, 'edit']);
+Route::delete('/student/{id}', StudentController::class .'@destroy')->name('student.destroy');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

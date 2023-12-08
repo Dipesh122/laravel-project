@@ -21,7 +21,7 @@ class StudentController extends Controller
                 'contact' => 'nullable'
         ]);
         $result = Student::create($parameters);
-        return redirect('student.student')->with('Success','Student Created Successfully');
+        return redirect('/student')->with('Success','Student Created Successfully');
     }
 
     public function edit(string $id)
@@ -38,6 +38,12 @@ class StudentController extends Controller
             'contact' => 'nullable'
         ]);
         $student->update($parameters);
+        return redirect('/student');
+    }
+
+    public function destroy($id) {
+        $student = Student::find($id);
+        $student->delete();
         return redirect('/student');
     }
 }
